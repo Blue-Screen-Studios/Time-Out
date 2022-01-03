@@ -233,7 +233,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5744082189501925267
 Transform:
   m_ObjectHideFlags: 0
@@ -287,7 +287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f8b97140c345b4e8dc243945c17495, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theRB: {fileID: 5744082189501925266}
+  targetInputDevice: 0
+  activeInputTrigger: 8
+  showTouchControls: 0
+  mobileControls: {fileID: 0}
+  rb: {fileID: 5744082189501925266}
   moveSpeed: 20
   jumpForce: 35
   groundPoint: {fileID: 5744082188670248194}

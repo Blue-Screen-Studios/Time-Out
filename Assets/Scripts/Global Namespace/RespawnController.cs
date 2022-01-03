@@ -28,13 +28,6 @@ public class RespawnController : MonoBehaviour
 
     public GameObject deathEffect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        thePlayer = PlayerHealthController.instance.gameObject;
-
-        respawnPoint = thePlayer.transform.position;
-    }
 
     // Update is called once per frame
     void Update()

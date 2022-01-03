@@ -9,7 +9,7 @@ public class DoorController : MonoBehaviour
 
     public float distanceToOpen;
 
-    private PlayerController thePlayer;
+    [SerializeField] private PlayerController thePlayer;
 
     private bool playerExiting;
 
@@ -17,12 +17,6 @@ public class DoorController : MonoBehaviour
     public float movePlayerSpeed;
 
     public string levelToLoad;
-
-
-    void Start()
-    {
-        thePlayer = PlayerHealthController.instance.GetComponent<PlayerController>();
-    }
 
 
     void Update()

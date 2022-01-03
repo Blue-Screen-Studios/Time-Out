@@ -19,7 +19,7 @@ namespace SaveSystem
         {
             if(!File.Exists(saveDataFilePath))
             {
-                AdvancedDebug.LogError("No file was found at location '" + saveDataFilePath + "'.");
+                AdvancedDebug.LogWarning("No file was found at location '" + saveDataFilePath + "'.");
                 return null;
             }
             else

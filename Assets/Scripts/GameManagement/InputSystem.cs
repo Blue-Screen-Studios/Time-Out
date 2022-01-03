@@ -1,39 +1,81 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using BetterDebug;
+using System;
 
 namespace GameManagement
 {
     public class InputSystem : MonoBehaviour
     {
-        private enum InputMode { Mobile, Console, PC };
-        [SerializeField] InputMode targetInputDevice;
+        public enum InputMode { Mobile, Console, PC };
+        public InputMode targetInputDevice;
+        public enum InputTrigger { Left, Right, Up, Down, Jump, LeftClick, RightClick, Exit, None };
+        public InputTrigger activeInputTrigger;
 
-        struct Axis
+        [HideInInspector] public bool showTouchControls;
+
+        [SerializeField] private GameObject mobileControls;
+
+        private void Start()
         {
-            private float _xAxis;
-            private float _yAxis;
-
-            public float xAxis { get { return _xAxis; } }
-            public float yAxis { get { return _yAxis; } }
+            if(targetInputDevice == InputMode.Mobile)
+            {
+                //show mobile controls
+            }
+            else
+            {
+                //hide mobile controls
+            }
         }
-
-        struct Triggers
-        {
-            private bool _escape;
-            private bool _jump;
-            private bool _dash;
-            private bool _shoot;
-
-            public bool escape { get { return _escape; } }
-            public bool jump { get { return _jump; } }
-            public bool dash { get { return _dash; } }
-            public bool shoot { get { return _shoot; } }
-        }
-
+        
         private void Update()
         {
-            
+            activeInputTrigger = GetInput();
+        }
+
+        private InputTrigger GetInput()
+        {
+            switch (targetInputDevice)
+            {
+                case InputMode.PC:
+
+                    float PCInput = Input.GetAxisRaw("Horizontal"); //Get horizontal axis without time distortion
+
+                    //Compare axis against zero and return accordingly
+                    if (PCInput > 0) { return InputTrigger.Right; }
+                    if (PCInput < 0) { return InputTrigger.Left; }
+
+                    //Check for key input
+                    if (Input.GetKeyDown(KeyCode.Space)) { return InputTrigger.Up; }
+                    if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftShift)) { return InputTrigger.Down; }
+
+                    //Check for mouse input
+                    if (Input.GetMouseButtonDown(0)) { return InputTrigger.LeftClick; }
+                    if (Input.GetMouseButtonDown(1)) { return InputTrigger.RightClick; }
+
+                    //Check for exit input
+                    if (Input.GetKey(KeyCode.Escape)) { return InputTrigger.Exit; }
+
+                    //Return no trigger if no input recieved in this frame
+                    return InputTrigger.None;
+
+                case InputMode.Console:
+
+                    float consoleInput = Input.GetAxisRaw("Horizontal");
+
+                    if (consoleInput > 0) { return InputTrigger.Right; }
+                    if (consoleInput < 0) { return InputTrigger.Left; }
+
+                    if (Input.GetButtonDown("Jump")) { return InputTrigger.Up; }
+                    return InputTrigger.None;
+
+                case InputMode.Mobile:
+
+                    return InputTrigger.None;
+
+                default:
+                    AdvancedDebug.LogException(new NotImplementedException());
+                    return InputTrigger.None;
+            }
         }
     }
 }

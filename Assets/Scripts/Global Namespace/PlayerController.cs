@@ -1,9 +1,11 @@
 using UnityEngine;
 using GameManagement;
+using BetterDebug;
+using System;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : InputSystem
 {
-    public Rigidbody2D theRB;
+    public Rigidbody2D rb;
 
     public float moveSpeed;
     public float jumpForce;
@@ -58,7 +60,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                if (Input.GetButtonDown("Fire2") && standing.activeSelf && PlayerAbilityTracker.CanDash())
+                if (activeInputTrigger == InputTrigger.RightClick  && standing.activeSelf && PlayerAbilityTracker.CanDash())
                 {
                     dashCounter = dashTime;
 
@@ -72,7 +74,7 @@ public class PlayerController : MonoBehaviour
             {
                 dashCounter = dashCounter - Time.deltaTime;
 
-                theRB.velocity = new Vector2(dashSpeed * transform.localScale.x, theRB.velocity.y);
+                rb.velocity = new Vector2(dashSpeed * transform.localScale.x, rb.velocity.y);
 
                 afterImageCounter -= Time.deltaTime;
                 if (afterImageCounter <= 0)
@@ -86,14 +88,22 @@ public class PlayerController : MonoBehaviour
             {
 
                 //move sideways
-                theRB.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, theRB.velocity.y);
+                if(activeInputTrigger == InputTrigger.Left)
+                {
+                    rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
+                }
+                
+                if(activeInputTrigger == InputTrigger.Right)
+                {
+                    rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+                }
 
                 //handle direction change
-                if (theRB.velocity.x < 0)
+                if (rb.velocity.x < 0)
                 {
                     transform.localScale = new Vector3(-1f, 1f, 1f);
                 }
-                else if (theRB.velocity.x > 0)
+                else if (rb.velocity.x > 0)
                 {
                     transform.localScale = Vector3.one;
                 }
@@ -120,7 +130,7 @@ public class PlayerController : MonoBehaviour
                     AudioManager.instance.PlaySFXAdjusted(9);
                 }
 
-                theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
             }
 
             //shooting
@@ -184,19 +194,19 @@ public class PlayerController : MonoBehaviour
             }
         } else
         {
-            theRB.velocity = Vector2.zero;
+            rb.velocity = Vector2.zero;
         }
 
 
         if (standing.activeSelf)
         {
             anim.SetBool("isOnGround", isOnGround);
-            anim.SetFloat("speed", Mathf.Abs(theRB.velocity.x));
+            anim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         }
 
         if(ball.activeSelf)
         {
-            ballAnim.SetFloat("speed", Mathf.Abs(theRB.velocity.x));
+            ballAnim.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         }
     }
 

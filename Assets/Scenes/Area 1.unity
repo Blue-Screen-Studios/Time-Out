@@ -130,30 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1264103759709499370, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
-      propertyPath: m_Size.x
-      value: 78.45653
-      objectReference: {fileID: 0}
-    - target: {fileID: 1264103759709499370, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
-      propertyPath: m_Offset.x
-      value: 21.605705
-      objectReference: {fileID: 0}
-    - target: {fileID: 1264103760594734461, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 10.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 1264103761193580967, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 56.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1264103761193580967, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 1264103761193580969, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
-      propertyPath: levelToLoad
-      value: Area 2
-      objectReference: {fileID: 0}
+      propertyPath: thePlayer
+      value: 
+      objectReference: {fileID: 1837222660}
     - target: {fileID: 7727318320675031513, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -230,6 +210,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1702878842}
   - {fileID: 979774829}
@@ -335,6 +316,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1862021070}
   m_Father: {fileID: 0}
@@ -367,6 +349,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 63.03, y: 0.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 525334290}
   m_RootOrder: 3
@@ -410,7 +393,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 172537215
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 1e0c7f5e74c2cbe449b9017b7a6987cb, type: 3}
   m_Color: {r: 0.46226418, g: 0.34172288, b: 0.067159116, a: 1}
@@ -450,6 +433,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.64, y: 0.43, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 525334290}
   m_RootOrder: 1
@@ -493,7 +477,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 172537215
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: c7ecf56d232314e42ba2cbe066ebcd80, type: 3}
   m_Color: {r: 0.46226418, g: 0.34172288, b: 0.067159116, a: 1}
@@ -533,6 +517,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 33.03, y: 0.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 525334290}
   m_RootOrder: 2
@@ -576,7 +561,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 172537215
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 1e0c7f5e74c2cbe449b9017b7a6987cb, type: 3}
   m_Color: {r: 0.46226418, g: 0.34172288, b: 0.067159116, a: 1}
@@ -616,6 +601,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 39.64, y: 0.43, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 525334290}
   m_RootOrder: 4
@@ -659,7 +645,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 172537215
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: c7ecf56d232314e42ba2cbe066ebcd80, type: 3}
   m_Color: {r: 0.46226418, g: 0.34172288, b: 0.067159116, a: 1}
@@ -699,6 +685,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3.03, y: 0.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 525334290}
   m_RootOrder: 0
@@ -742,7 +729,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 172537215
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: -10
   m_Sprite: {fileID: 21300000, guid: 1e0c7f5e74c2cbe449b9017b7a6987cb, type: 3}
   m_Color: {r: 0.46226418, g: 0.34172288, b: 0.067159116, a: 1}
@@ -917,6 +904,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79eb43b2d7604304391893b5bbc240a8, type: 3}
+--- !u!114 &1837222660 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5744082189501925276, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
+  m_PrefabInstance: {fileID: 1726789705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f8b97140c345b4e8dc243945c17495, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1862021069
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +946,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 854713967}
   m_RootOrder: 0
@@ -1144,7 +1143,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 2077413823
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
