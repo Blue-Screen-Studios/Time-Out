@@ -6,7 +6,7 @@ namespace GameManagement
 {
     public class GameManager : MonoBehaviour
     {
-        public GameObject continueButton;
+        [SerializeField] private GameObject continueButton;
 
         void Start()
         {
