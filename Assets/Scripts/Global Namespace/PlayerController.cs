@@ -3,7 +3,7 @@ using GameManagement;
 using BetterDebug;
 using System;
 
-public class PlayerController : InputSystem
+public class PlayerController : MonoBehaviour
 {
     public Rigidbody2D rb;
 
@@ -60,7 +60,7 @@ public class PlayerController : InputSystem
             else
             {
 
-                if (activeInputTrigger == InputTrigger.RightClick  && standing.activeSelf && PlayerAbilityTracker.CanDash())
+                if (/*INPUT && */ standing.activeSelf && PlayerAbilityTracker.CanDash())
                 {
                     dashCounter = dashTime;
 
@@ -74,7 +74,7 @@ public class PlayerController : InputSystem
             {
                 dashCounter = dashCounter - Time.deltaTime;
 
-                rb.velocity = new Vector2(dashSpeed * transform.localScale.x, rb.velocity.y);
+                //rb.velocity = new Vector2(dashSpeed * transform.localScale.x, rb.velocity.y);
 
                 afterImageCounter -= Time.deltaTime;
                 if (afterImageCounter <= 0)
@@ -87,7 +87,7 @@ public class PlayerController : InputSystem
             else
             {
 
-                //move sideways
+                /*//move sideways
                 if(activeInputTrigger == InputTrigger.Left)
                 {
                     rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
@@ -106,7 +106,7 @@ public class PlayerController : InputSystem
                 else if (rb.velocity.x > 0)
                 {
                     transform.localScale = Vector3.one;
-                }
+                }*/
             }
 
             //checking if on the ground
