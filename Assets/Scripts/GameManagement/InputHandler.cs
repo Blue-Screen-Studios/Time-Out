@@ -18,7 +18,7 @@ namespace GameManagement.Input
             EnablePlayerActionMap(actions);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             Vector2 movementVector = actions.PlayerActions.Movement.ReadValue<Vector2>();
         }
