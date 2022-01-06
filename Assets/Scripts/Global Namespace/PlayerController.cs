@@ -41,12 +41,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float waitAfterDashing;
     [SerializeField] private float waitToBall;
 
-    private bool isOnGround, canMove;
-
-    private bool canDoubleJump;
-
-    private float dashCounter, afterImageCounter, dashRechargeCounter, ballCounter;
-
     public void PlayerMove(Vector2 inputVector)
     {
         Vector3 movementVector = new Vector3(inputVector.x, 0f, 0f) * moveSpeed;

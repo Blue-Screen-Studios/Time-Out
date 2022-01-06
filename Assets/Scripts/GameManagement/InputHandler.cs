@@ -9,12 +9,14 @@ namespace GameManagement.Input
     public class InputHandler : MonoBehaviour
     {
         [SerializeField] private PlayerController player;
+        [SerializeField] private Color baseControllerColor;
+
         private PlayerInputActions actions;
 
         private void Awake()
         {
             var gamepad = (DualShockGamepad)Gamepad.all[0];
-            gamepad.SetLightBarColor(Color.white);
+            gamepad.SetLightBarColor(baseControllerColor);
 
             actions = new PlayerInputActions();
 
@@ -22,6 +24,7 @@ namespace GameManagement.Input
 
             EnablePlayerActionMap(actions);
         }
+
         private void EnablePlayerActionMap(PlayerInputActions actions) { actions.PlayerActions.Enable(); }
 
         private void Update()
@@ -32,7 +35,7 @@ namespace GameManagement.Input
 
         private void PlayerJump(InputAction.CallbackContext context)
         {
-            
+
         }
     }
 }
