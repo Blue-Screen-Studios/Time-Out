@@ -5,51 +5,81 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody2D rb;
+    [Header("Animation")]
+    [SerializeField] private Animator ballAnim;
+    [SerializeField] private Animator playerAnim;
 
-    public float moveSpeed;
-    public float jumpForce;
+    [Header("Ground Detection")]
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundDetectionPoint;
 
-    public Transform groundPoint;
-    private bool isOnGround;
-    public LayerMask whatIsGround;
+    [Header("Instantiation Positions")]
+    [SerializeField] private Transform bombPoint;
+    [SerializeField] private Transform shotPoint;
 
-    public Animator anim;
+    [Header("Physics")]
+    [SerializeField] private Rigidbody2D rb;
 
-    public BulletController shotToFire;
-    public Transform shotPoint;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject bomb;
+    [SerializeField] private BulletController bullet;
+    [SerializeField] private GameObject standing;
+
+    [Header("Rendering")]
+    [SerializeField] private SpriteRenderer afterImage;
+    [SerializeField] private Color afterImageColor;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+
+    [Header("Settings")]
+    [SerializeField] private float afterImageLifetime;
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float jumpForce;
+    [SerializeField] private float moveSpeed;
+    [SerializeField] private float timeBetweenAfterImages;
+    [SerializeField] private float waitAfterDashing;
+    [SerializeField] private float waitToBall;
+
+    private bool isOnGround, canMove;
 
     private bool canDoubleJump;
 
-    public float dashSpeed, dashTime;
-    private float dashCounter;
+    private float dashCounter, afterImageCounter, dashRechargeCounter, ballCounter;
 
-    public SpriteRenderer theSR, afterImage;
-    public float afterImageLifetime, timeBetweenAfterImages;
-    private float afterImageCounter;
-    public Color afterImageColor;
-
-    public float waitAfterDashing;
-    private float dashRechargeCounter;
-
-    public GameObject standing, ball;
-    public float waitToBall;
-    private float ballCounter;
-    public Animator ballAnim;
-
-    public Transform bombPoint;
-    public GameObject bomb;
-
-    public bool canMove;
-
-    // Start is called before the first frame update
-    void Start()
+    public void PlayerMove(Vector2 inputVector)
     {
-        canMove = true;
+        Vector3 movementVector = new Vector3(inputVector.x, 0f, 0f) * moveSpeed;
+        rb.velocity = movementVector;
+        playerAnim.SetFloat("speed", Math.Abs(movementVector.x));
+        UpdateCharacterDirection();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayerJump(Vector2 movementVector)
+    {
+        if(IsOnGround())
+        {
+            rb.velocity = new Vector3(rb.velocity.x, movementVector.y, 0F);
+        }
+    }
+
+    private bool IsOnGround()
+    {
+        return Physics2D.OverlapCircle(groundDetectionPoint.position, .2f, groundLayer);
+    }
+
+    private void UpdateCharacterDirection()
+    {
+        if (rb.velocity.x < 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        else if(rb.velocity.x > 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+    }
+    /*void Update()
     {
         if (canMove && Time.timeScale != 0)
         {
@@ -60,7 +90,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                if (/*INPUT && */ standing.activeSelf && PlayerAbilityTracker.CanDash())
+                if (/*INPUT && standing.activeSelf && PlayerAbilityTracker.CanDash())
                 {
                     dashCounter = dashTime;
 
@@ -87,7 +117,7 @@ public class PlayerController : MonoBehaviour
             else
             {
 
-                /*//move sideways
+                //move sideways
                 if(activeInputTrigger == InputTrigger.Left)
                 {
                     rb.velocity = new Vector2(-moveSpeed, rb.velocity.y);
@@ -106,11 +136,10 @@ public class PlayerController : MonoBehaviour
                 else if (rb.velocity.x > 0)
                 {
                     transform.localScale = Vector3.one;
-                }*/
+                }
             }
 
             //checking if on the ground
-            isOnGround = Physics2D.OverlapCircle(groundPoint.position, .2f, whatIsGround);
 
             //jumping
             if (Input.GetButtonDown("Jump") && (isOnGround || (canDoubleJump && PlayerAbilityTracker.CanDoubleJump())))
@@ -220,5 +249,5 @@ public class PlayerController : MonoBehaviour
         Destroy(image.gameObject, afterImageLifetime);
 
         afterImageCounter = timeBetweenAfterImages;
-    }
+    }*/
 }
