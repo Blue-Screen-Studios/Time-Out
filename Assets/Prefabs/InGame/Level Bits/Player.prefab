@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5744082189501925276}
-  baseControllerColor: {r: 0, g: 1, b: 0, a: 0}
+  baseControllerColor: {r: 1, g: 1, b: 1, a: 0}
 --- !u!114 &5744082189501925276
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,20 +41,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float waitAfterDashing;
     [SerializeField] private float waitToBall;
 
+    private void Awake()
+    {
+        rb.velocity = Vector3.zero * 0;
+    }
+
     public void PlayerMove(Vector2 inputVector)
     {
         Vector3 movementVector = new Vector3(inputVector.x, 0f, 0f) * moveSpeed;
         rb.velocity = movementVector;
-        playerAnim.SetFloat("speed", Math.Abs(movementVector.x));
+
+        if(IsOnGround())
+        {
+            playerAnim.SetFloat("speed", Math.Abs(movementVector.x));
+        }
+
         UpdateCharacterDirection();
     }
 
-    public void PlayerJump(Vector2 movementVector)
+    public void PlayerJump()
     {
+        Debug.Log(rb.velocity.y);
+
         if(IsOnGround())
         {
-            rb.velocity = new Vector3(rb.velocity.x, movementVector.y, 0F);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
+
+        Debug.Log(rb.velocity.y);
+        Debug.Log(jumpForce);
     }
 
     private bool IsOnGround()

@@ -20,7 +20,7 @@ namespace GameManagement.Input
 
             actions = new PlayerInputActions();
 
-            actions.PlayerActions.Jump.performed += PlayerJump;
+            actions.PlayerActions.Jump.performed += Jump;
 
             EnablePlayerActionMap(actions);
         }
@@ -33,9 +33,9 @@ namespace GameManagement.Input
             player.PlayerMove(movementVector);
         }
 
-        private void PlayerJump(InputAction.CallbackContext context)
+        private void Jump(InputAction.CallbackContext context)
         {
-
+            player.PlayerJump();
         }
     }
 }
