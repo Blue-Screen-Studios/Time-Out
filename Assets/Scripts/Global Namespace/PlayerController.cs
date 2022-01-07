@@ -5,6 +5,8 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
+    #region serialized_fields
+
     [Header("Animation")]
     [SerializeField] private Animator ballAnim;
     [SerializeField] private Animator playerAnim;
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float waitAfterDashing;
     [SerializeField] private float waitToBall;
 
+    #endregion serialized_fields
+
     private void Awake()
     {
         rb.velocity = Vector3.zero * 0;
@@ -61,15 +65,10 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerJump()
     {
-        Debug.Log(rb.velocity.y);
-
         if(IsOnGround())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
-
-        Debug.Log(rb.velocity.y);
-        Debug.Log(jumpForce);
     }
 
     private bool IsOnGround()

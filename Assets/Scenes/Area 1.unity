@@ -182,7 +182,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level Bits
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1264103761193580969, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 31d64a1aae6cd2c46b6724a8da9b732d, type: 3}
 --- !u!1 &525334289
 GameObject:
@@ -749,13 +750,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5678442433444590512, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
+      propertyPath: baseControllerColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678442433444590512, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
+      propertyPath: baseControllerColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5678442433444590512, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
+      propertyPath: baseControllerColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5744082189501925265, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5744082189501925266, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: m_GravityScale
-      value: 5
+      propertyPath: m_LinearDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5744082189501925267, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
       propertyPath: m_RootOrder
