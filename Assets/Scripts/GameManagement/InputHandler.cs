@@ -20,7 +20,7 @@ namespace GameManagement.Input
 
             actions = new PlayerInputActions();
 
-            actions.PlayerActions.Jump.performed += Jump;
+            actions.PlayerActions.Jump.started += Jump;
 
             EnablePlayerActionMap(actions);
         }

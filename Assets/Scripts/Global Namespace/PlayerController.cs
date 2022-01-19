@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerMove(Vector2 inputVector)
     {
-        Vector3 movementVector = new Vector3(inputVector.x, 0f, 0f) * moveSpeed;
+        Vector3 movementVector = new Vector3(inputVector.x, rb.velocity.y, 0f) * moveSpeed;
         rb.velocity = movementVector;
 
         if(IsOnGround())
@@ -67,7 +67,9 @@ public class PlayerController : MonoBehaviour
     {
         if(IsOnGround())
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            Debug.Log("Jump: " + rb.velocity);
+            rb.AddForce(new Vector2(0f, jumpForce));
+            Debug.Log("Jump: " + rb.velocity);
         }
     }
 
