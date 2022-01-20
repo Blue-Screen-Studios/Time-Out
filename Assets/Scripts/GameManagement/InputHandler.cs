@@ -30,12 +30,12 @@ namespace GameManagement.Input
         private void Update()
         {
             Vector2 movementVector = actions.PlayerActions.Movement.ReadValue<Vector2>();
-            player.PlayerMove(movementVector);
+            player.MovementAxis(movementVector);
         }
 
         private void Jump(InputAction.CallbackContext context)
         {
-            player.PlayerJump();
+            player.JumpButton();
         }
     }
 }
