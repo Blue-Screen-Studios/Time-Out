@@ -35,51 +35,42 @@ public class PlayerController : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private float afterImageLifetime;
-    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashAceleration;
     [SerializeField] private float dashTime;
     [SerializeField] private float jumpForce;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float aceleration;
     [SerializeField] private float timeBetweenAfterImages;
     [SerializeField] private float waitAfterDashing;
     [SerializeField] private float waitToBall;
 
     #endregion serialized_fields
 
-    private void Awake()
-    {
-        rb.velocity = Vector3.zero * 0;
-    }
-
-    private void Update()
-    {
-        //Do stuff here...
-    }
-
     #region public_C#_Events
 
-    public void MovementAxis(Vector2 inputVector)
+    public void PlayerMove(Vector2 inputVector)
     {
-        float horizontal = inputVector.x;
-        float verticalInput = inputVector.y;
+        rb.AddForce(new Vector3(inputVector.x, 0, 0) * aceleration);
 
-        #region temp
-        /*
         if(IsOnGround())
         {
-            playerAnim.SetFloat("speed", Math.Abs(movementVector.x));
+            playerAnim.SetFloat("speed", Math.Abs(inputVector.x));
         }
 
         UpdateCharacterDirection();
-        */
-        #endregion temp
+
     }
 
-    public void JumpButton()
+    public void PlayerJump()
     {
         if(IsOnGround())
         {
-            rb.AddForce(new Vector2(0f, jumpForce));
+            rb.AddForce(new Vector3(0f, jumpForce, 0f));
         }
+    }
+
+    public void PlayerDash()
+    {
+        rb.AddForce(new Vector3(rb.velocity.x, 0f, 0f) * dashAceleration);
     }
 
     #endregion public_C#_Events

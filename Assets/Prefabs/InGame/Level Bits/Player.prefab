@@ -333,10 +333,10 @@ MonoBehaviour:
   afterImageColor: {r: 0, g: 0, b: 0, a: 0.92156863}
   spriteRenderer: {fileID: 5744082189948594056}
   afterImageLifetime: 0.75
-  dashSpeed: 90
+  dashAceleration: 10
   dashTime: 0.1
-  jumpForce: 90
-  moveSpeed: 20
+  jumpForce: 1500
+  aceleration: 15
   timeBetweenAfterImages: 0.01
   waitAfterDashing: 0.01
   waitToBall: 1e-14

@@ -750,25 +750,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5678442433444590512, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: baseControllerColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5678442433444590512, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: baseControllerColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5678442433444590512, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: baseControllerColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5744082189501925265, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5744082189501925266, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5744082189501925267, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
       propertyPath: m_RootOrder
@@ -815,16 +799,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5744082189501925276, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: gravity
-      value: 9.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 5744082189501925276, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: jumpForce
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5744082189501925276, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
-      propertyPath: moveSpeed
-      value: 20
+      propertyPath: dashAceleration
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e608ba9ca1fa33940adf141d2fd73daf, type: 3}
